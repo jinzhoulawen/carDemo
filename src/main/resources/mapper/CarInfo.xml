@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zw.web.mapper.CarMapper">
+
+    <resultMap id="CarResultMap" type="com.zw.web.model.domian.Car">
+        <result column="id" property="id"/>
+        <result column="car_model_name" property="modelName"/>
+        <result column="car_brand" property="brand"/>
+        <result column="car_brand_name" property="brandName"/>
+        <result column="car_years" property="years"/>
+        <result column="car_displacement" property="displacement"/>
+        <result column="car_registration_time" property="registrationTime"/>
+        <result column="car_mileage" property="mileage"/>
+        <result column="car_transmission" property="transmission"/>
+        <result column="car_price" property="price"/>
+        <result column="car_change_times" property="changeTimes"/>
+        <result column="car_collection_numbers" property="collectionNumbers"/>
+        <result column="car_history_numbers" property="historyNumbers"/>
+
+    </resultMap>
+    <update id="UpdateCarHistory" >
+        update
+        car_info
+        set car_history_numbers=car_history_numbers+1
+        where
+        id=#{id,jdbcType=BIGINT}
+    </update>
+
+</mapper>
