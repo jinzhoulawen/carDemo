@@ -5,7 +5,7 @@ import lombok.Data;
 @TableName(value = "car_info")
 @Data
 public class Car {
-    private Integer id;
+    private Long id;
 
     private String modelName;
 
@@ -28,8 +28,12 @@ public class Car {
     private String changeTimes;
 
     private String collectionNumbers;
+
     private String historyNumbers;
 
+    private String heat;
+
+    private String createDate;
 
 
 }
