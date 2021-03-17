@@ -1,9 +1,14 @@
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.core.config.GlobalConfig;
+
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
+
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
@@ -28,7 +33,7 @@ public class test {
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
         //gc.setAuthor("");
-
+        gc.setFileOverride(false);
         gc.setOpen(false);
         gc.setServiceName("%sService");
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
@@ -50,6 +55,7 @@ public class test {
         pc.setEntity("model");
         pc.setMapper("mapper");
         pc.setService("service");
+        //pc.setServiceImpl("serviceImpl");
         pc.setController("controller");
         mpg.setPackageInfo(pc);
 
@@ -100,7 +106,7 @@ public class test {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setInclude("user_collection","user_history");
+        strategy.setInclude("user_collection");
         //strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
         strategy.setEntityLombokModel(true);
         //strategy.setRestControllerStyle(true);

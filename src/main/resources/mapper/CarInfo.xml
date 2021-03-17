@@ -16,6 +16,8 @@
         <result column="car_change_times" property="changeTimes"/>
         <result column="car_collection_numbers" property="collectionNumbers"/>
         <result column="car_history_numbers" property="historyNumbers"/>
+        <result column="car_heat" property="heat"/>
+        <result column="car_create_date" property="createDate"/>
 
     </resultMap>
     <update id="UpdateCarHistory" >
@@ -25,5 +27,31 @@
         where
         id=#{id,jdbcType=BIGINT}
     </update>
+
+    <select id="selectCarListPage" resultMap="CarResultMap">
+        select
+        id,
+        car_model_name,
+        car_brand,
+        car_brand_name,
+        car_years,
+        car_displacement,
+        car_registration_time,
+        car_mileage,
+        car_transmission,
+        car_price,
+        car_change_times,
+        car_collection_numbers,
+        car_history_numbers,
+        car_heat
+        from car_info
+        where
+        1=1
+        <if test="condition.brand != null and condition.brand != '' ">
+            AND car_brand = #{condition.brand}
+        </if>
+        ORDER BY car_create_date desc
+
+    </select>
 
 </mapper>
