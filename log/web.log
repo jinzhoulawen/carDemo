@@ -1964,3 +1964,21 @@ java.lang.IllegalArgumentException: Invalid character found in the request targe
 2021/03/19-00:06:03 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- traceId: - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2021/03/19-00:06:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- traceId: - Initializing Servlet 'dispatcherServlet'
 2021/03/19-00:06:03 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- traceId: - Completed initialization in 8 ms
+2021/03/19-00:10:16 [main] INFO  com.zw.web.SpringStartApplication- traceId: - Starting SpringStartApplication on WIN-2B2QA19QVLM with PID 2840 (G:\ideaDemo\carDemo\target\classes started by Administrator in G:\ideaDemo\carDemo)
+2021/03/19-00:10:16 [main] INFO  com.zw.web.SpringStartApplication- traceId: - No active profile set, falling back to default profiles: default
+2021/03/19-00:10:17 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner- traceId: - No MyBatis mapper was found in '[com.zw.web.service.*.mapper*]' package. Please check your configuration.
+2021/03/19-00:10:18 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- traceId: - Tomcat initialized with port(s): 8080 (http)
+2021/03/19-00:10:18 [main] INFO  org.apache.coyote.http11.Http11NioProtocol- traceId: - Initializing ProtocolHandler ["http-nio-8080"]
+2021/03/19-00:10:18 [main] INFO  org.apache.catalina.core.StandardService- traceId: - Starting service [Tomcat]
+2021/03/19-00:10:18 [main] INFO  org.apache.catalina.core.StandardEngine- traceId: - Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021/03/19-00:10:18 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- traceId: - Initializing Spring embedded WebApplicationContext
+2021/03/19-00:10:18 [main] INFO  org.springframework.web.context.ContextLoader- traceId: - Root WebApplicationContext: initialization completed in 1361 ms
+2021/03/19-00:10:18 [main] INFO  com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure- traceId: - Init DruidDataSource
+2021/03/19-00:10:19 [main] INFO  com.alibaba.druid.pool.DruidDataSource- traceId: - {dataSource-1} inited
+2021/03/19-00:10:20 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor- traceId: - Initializing ExecutorService 'applicationTaskExecutor'
+2021/03/19-00:10:20 [main] INFO  org.apache.coyote.http11.Http11NioProtocol- traceId: - Starting ProtocolHandler ["http-nio-8080"]
+2021/03/19-00:10:20 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer- traceId: - Tomcat started on port(s): 8080 (http) with context path ''
+2021/03/19-00:10:20 [main] INFO  com.zw.web.SpringStartApplication- traceId: - Started SpringStartApplication in 3.956 seconds (JVM running for 5.403)
+2021/03/19-00:10:24 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]- traceId: - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021/03/19-00:10:24 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- traceId: - Initializing Servlet 'dispatcherServlet'
+2021/03/19-00:10:24 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet- traceId: - Completed initialization in 7 ms
