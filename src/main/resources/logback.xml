@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %X{traceId} - %msg%n</pattern>
+            <!-- 控制台也要使用UTF-8，不要使用GBK，否则会中文乱码 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/web.log</file>　　　　　　
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">　　　　　　　　　　　　　
+            <fileNamePattern>./log/web.%i.log</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>30</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>100MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- traceId: %X{traceId}- %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <!--<logger name="org.springframework.web" level="DEBUG">-->
+    <!--</logger>-->
+    <logger name="com.jiabaida.web.mapper" level="ERROR">
+        <appender-ref ref="FILE"/>
+    </logger>
+</configuration>
