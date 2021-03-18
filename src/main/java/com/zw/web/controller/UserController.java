@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -15,9 +16,11 @@ public class UserController {
     @Autowired
     private UserInfoService userInfoService;
 
+    private HttpSession session;
     @ResponseBody
     @GetMapping(value = "/login")
     public String Login(@RequestParam("user") User user, HttpServletRequest req, HttpServletResponse resp){
+
         return this.userInfoService.selectUserByNameAndPW(user,req,resp);
 
     }

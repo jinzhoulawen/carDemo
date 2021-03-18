@@ -13,5 +13,5 @@ import java.util.List;
 
 public interface CarMapper extends BaseMapper<Car> {
     void UpdateCarHistory(int id);
-    List<Car>selectCarListOPage(Page page, @Param("condition")CarCondition carCondition);
+    List<Car>selectCarListPage(Page page, @Param("condition")CarCondition carCondition);
 }

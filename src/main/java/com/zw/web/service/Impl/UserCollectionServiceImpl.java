@@ -12,6 +12,9 @@ import com.zw.web.service.UserCollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.Function;
@@ -26,12 +29,14 @@ import java.util.function.Function;
  */
 @Service
 public class UserCollectionServiceImpl extends ServiceImpl<UserCollectionMapper, UserCollection> implements UserCollectionService {
+    private HttpSession session;
     @Autowired
     private UserCollectionMapper collectionMapper;
     @Override
-    public int addConllection(UserCollection userCollection, Car car, User user) {
+    public int addConllection(Car car, HttpServletRequest req, HttpServletResponse resp) {
         //userCollection.setId();
-        userCollection.setUid(user.getId());
+        UserCollection userCollection = new UserCollection();
+        userCollection.setUid( Long.parseLong(session.getId()));
         userCollection.setCid(car.getId());
         collectionMapper.insert(userCollection);
         return 0;

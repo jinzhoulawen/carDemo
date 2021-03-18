@@ -43,11 +43,12 @@ public class UserInfoServiceImpl implements UserInfoService {
                 if (user1.getIdentity()==0){
                     session.setAttribute("username",user1.getUsername());
                     session.setAttribute("userId",user1.getId());
+                    //session.setAttribute("username",user.getUsername());
                     return "普通用户";
                 }else if (user1.getIdentity()==1){
                     session.setAttribute("username",user1.getUsername());
                     session.setAttribute("userId",user1.getId());
-
+                    //session.setAttribute("username",user.getUsername());
                     return "管理员";
                 }else {return "用户信息错误，请联系管理员";}
 

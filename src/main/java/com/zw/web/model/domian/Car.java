@@ -7,33 +7,33 @@ import lombok.Data;
 public class Car {
     private Long id;
 
-    private String modelName;
+    private String carModelName;
 
-    private String brand;
+    private String carBrand;
 
-    private String brandName;
+    private String carBrandName;
 
-    private String years;
+    private String carYears;
 
-    private String displacement;
+    private String carDisplacement;
 
-    private String registrationTime;
+    private String carRegistrationTime;
 
-    private String mileage;
+    private String carMileage;
 
-    private String transmission;
+    private String carTransmission;
 
-    private String price;
+    private String carPrice;
 
-    private String changeTimes;
+    private String carChangeTimes;
 
-    private String collectionNumbers;
+    private Long carCollectionNumbers;
 
-    private String historyNumbers;
+    private Long carHistoryNumbers;
 
-    private String heat;
+    private String carHeat;
 
-    private String createDate;
+    private String carCreateDate;
 
 
 }

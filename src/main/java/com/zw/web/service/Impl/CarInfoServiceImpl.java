@@ -1,8 +1,11 @@
 package com.zw.web.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zw.web.mapper.CarMapper;
+import com.zw.web.mapper.UserMapper;
 import com.zw.web.model.domian.Car;
 import com.zw.web.model.dto.PageQuery;
 import com.zw.web.model.domian.PageResult;
@@ -21,16 +24,43 @@ import javax.servlet.http.HttpSession;
 public class CarInfoServiceImpl extends ServiceImpl<CarMapper, Car> implements CarInfoService {
     @Autowired
     private CarMapper carMapper;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    private HttpSession session;
+
+    //车辆浏览数加1
     @Override
     public String addCarHistory(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        //UpdateWrapper<Car> wrapper=new UpdateWrapper<>();
-        //wrapper.set("car_history_numbers","car_history_numbers"+1).eq("id",session.getId());
-        //wrapper.set("historyNumbers",2).eq("id",1);
-        carMapper.UpdateCarHistory(1);
+        Car car =new Car();
+        car=this.carMapper.selectById(1);
+        carMapper.update(car,Wrappers.<Car>lambdaUpdate().eq(Car::getId,1)
+                        .set(Car::getCarHistoryNumbers,car.getCarHistoryNumbers()+1)
+                        .set(Car::getCarHeat,car.getCarHeat()+1));
         return null;
     }
 
+    //车辆收藏数加1
+    @Override
+    public String addCarCollection(HttpServletRequest request, HttpServletResponse response) {
+        Car car =new Car();
+        car=this.carMapper.selectById(1);
+        if (car.getCarCollectionNumbers()==null)
+        car.setCarCollectionNumbers(0L);
+        try{
+            carMapper.update(car, Wrappers.<Car>lambdaUpdate().eq(Car::getId,1)
+                    .set(Car::getCarCollectionNumbers,car.getCarCollectionNumbers()+1)
+                    .set(Car::getCarHeat,car.getCarHeat()+10));
+
+            System.out.println("yes");
+        }catch(Exception e){e.printStackTrace();}
+
+        return null;
+    }
+
+    //分页查询车辆信息
     @Override
     public PageResult<Car> queryCarPaging(PageQuery pageQuery) {
         CarCondition carCondition=new CarCondition();
@@ -39,7 +69,7 @@ public class CarInfoServiceImpl extends ServiceImpl<CarMapper, Car> implements C
 
         Page<Car> page = new Page<Car>(pageQuery.getCurrentPage(),pageQuery.getPageSize());
         page.setOptimizeCountSql(false);
-        page.setRecords(this.baseMapper.selectCarListOPage(page,carCondition));
+        page.setRecords(this.baseMapper.selectCarListPage(page,carCondition));
         return PageResultUtil.createPageResult(page, list -> {
             return list;
         }, pageQuery.getParamMap());

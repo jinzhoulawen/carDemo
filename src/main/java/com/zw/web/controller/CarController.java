@@ -2,6 +2,7 @@ package com.zw.web.controller;
 
 import com.zw.web.model.domian.Car;
 import com.zw.web.model.domian.PageResult;
+import com.zw.web.model.dto.PageQuery;
 import com.zw.web.model.dto.test;
 import com.zw.web.service.CarInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,11 @@ public class CarController {
 
     @GetMapping(value = "/querypaging")
     @ResponseBody
-    PageResult<Car> queryCarPaging(@RequestParam(value = "query") test test){
+    PageResult<Car> queryCarPaging(@RequestParam("query") PageQuery pageQuery){
         //@RequestParam("query") PageQuery pageQuery
         //System.out.println(map);
-        return null;
-        //return this.carInfoService.queryCarPaging(pageQuery);
+        //return null;
+        return this.carInfoService.queryCarPaging(pageQuery);
     }
 
     //车辆详情

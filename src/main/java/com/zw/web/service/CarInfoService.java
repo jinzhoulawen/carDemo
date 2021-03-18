@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface CarInfoService {
    String addCarHistory(HttpServletRequest request, HttpServletResponse response);
+   String addCarCollection(HttpServletRequest request, HttpServletResponse response);
   // Page<Car> selectCarListPage();
    public PageResult<Car> queryCarPaging(PageQuery pageQuery);
+
+
 }

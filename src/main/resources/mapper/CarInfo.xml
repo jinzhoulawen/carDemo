@@ -4,20 +4,20 @@
 
     <resultMap id="CarResultMap" type="com.zw.web.model.domian.Car">
         <result column="id" property="id"/>
-        <result column="car_model_name" property="modelName"/>
-        <result column="car_brand" property="brand"/>
-        <result column="car_brand_name" property="brandName"/>
+        <result column="car_model_name" property="carModelName"/>
+        <result column="car_brand" property="carBrand"/>
+        <result column="car_brand_name" property="carBrandName"/>
         <result column="car_years" property="years"/>
-        <result column="car_displacement" property="displacement"/>
-        <result column="car_registration_time" property="registrationTime"/>
-        <result column="car_mileage" property="mileage"/>
-        <result column="car_transmission" property="transmission"/>
-        <result column="car_price" property="price"/>
-        <result column="car_change_times" property="changeTimes"/>
-        <result column="car_collection_numbers" property="collectionNumbers"/>
-        <result column="car_history_numbers" property="historyNumbers"/>
-        <result column="car_heat" property="heat"/>
-        <result column="car_create_date" property="createDate"/>
+        <result column="car_displacement" property="carDisplacement"/>
+        <result column="car_registration_time" property="carRegistrationTime"/>
+        <result column="car_mileage" property="carMileage"/>
+        <result column="car_transmission" property="carTransmission"/>
+        <result column="car_price" property="carPrice"/>
+        <result column="car_change_times" property="carChangeTimes"/>
+        <result column="car_collection_numbers" property="carCollectionNumbers"/>
+        <result column="car_history_numbers" property="carHistoryNumbers"/>
+        <result column="car_heat" property="carHeat"/>
+        <result column="car_create_date" property="carCreateDate"/>
 
     </resultMap>
     <update id="UpdateCarHistory" >

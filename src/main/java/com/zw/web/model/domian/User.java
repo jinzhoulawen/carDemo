@@ -9,4 +9,5 @@ public class User {
     private String password;
     private String tel;
     private Integer identity;
+    private String ban;
 }
