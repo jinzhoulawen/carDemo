@@ -9,5 +9,8 @@ public class User {
     private String password;
     private String tel;
     private Integer identity;
+    private Long userCarHistoryId;
+    private Long userCarCollectionId;
     private String ban;
+    private Long createDate;
 }
