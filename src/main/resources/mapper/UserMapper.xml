@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zw.web.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.zw.web.model.domian.User">
+            <result column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="tel" property="tel"/>
+            <result column="identity" property="identity"/>
+            <result column="user_car_history_id" property="userCarHistoryId"/>
+            <result column="user_car_collection_id" property="userCarCollectionId"/>
+            <result column="ban" property="ban"/>
+            <result column="create_date" property="createDate"/>
+
+
+
+    </resultMap>
+        <select id="selectUserListPage" resultMap="UserResultMap">
+            select
+                id,
+                username,
+                password,
+                tel,
+                identity,
+                user_car_history_id,
+                user_car_collection_id,
+                ban,
+                create_date
+            from
+                user
+            where identity = 0
+            ORDER BY create_date desc
+
+        </select>
+
+</mapper>

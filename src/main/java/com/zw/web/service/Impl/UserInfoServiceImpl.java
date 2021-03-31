@@ -5,11 +5,17 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zw.web.mapper.CarMapper;
 import com.zw.web.mapper.UserMapper;
 import com.zw.web.model.domian.Car;
+import com.zw.web.model.domian.PageResult;
 import com.zw.web.model.domian.User;
+import com.zw.web.model.dto.PageQuery;
+import com.zw.web.service.CarInfoService;
 import com.zw.web.service.UserInfoService;
+import com.zw.web.utils.PageResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class UserInfoServiceImpl implements UserInfoService {
+public class UserInfoServiceImpl extends ServiceImpl<UserMapper, User> implements UserInfoService {
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -70,8 +76,20 @@ public class UserInfoServiceImpl implements UserInfoService {
             return "注册成功";
     }
 
+    //用户分页查询
+    @Override
+    public PageResult<User> queryUserPaging(PageQuery pageQuery) {
+        Page<User> page = new Page<User>(pageQuery.getCurrentPage(),pageQuery.getPageSize());
+        page.setOptimizeCountSql(false);
+        page.setRecords(this.baseMapper.selectUserListPage(page));
+        return PageResultUtil.createPageResult(page, list -> {
+            return list;
+        }, pageQuery.getParamMap());
 
-//    public String addCarHistory( HttpServletRequest request, HttpServletResponse response) {
+    }
+
+
+    //    public String addCarHistory( HttpServletRequest request, HttpServletResponse response) {
 //        HttpSession session = request.getSession();
 //        //UpdateWrapper<Car> wrapper=new UpdateWrapper<>();
 //        //wrapper.set("car_history_numbers","car_history_numbers"+1).eq("id",session.getId());

@@ -31,9 +31,9 @@ public class Car {
 
     private Long carHistoryNumbers;
 
-    private String carHeat;
+    private Long carHeat;
 
-    private String carCreateDate;
+    private Long carCreateDate;
 
 
 }

@@ -17,6 +17,17 @@ public class PageQuery implements Serializable {
 
     private Map<String, Object> paramMap;
 
+    @Override
+    public String toString() {
+        return "PageQuery{" +
+                "currentPage=" + currentPage +
+                ", count=" + count +
+                ", pageSize=" + pageSize +
+                ", sort=" + sort +
+                ", paramMap=" + paramMap +
+                '}';
+    }
+
     public PageQuery() {
     }
 
