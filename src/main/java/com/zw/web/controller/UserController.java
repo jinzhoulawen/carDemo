@@ -20,16 +20,14 @@ public class UserController {
     private UserInfoService userInfoService;
 
     @ResponseBody
-    @GetMapping(value = "/queryUserPage")
-    PageResult<User> queryUserPaging(@RequestParam("query") PageQuery pageQuery){
-
+    @PostMapping(value = "/queryUserPage")
+    PageResult<User> queryUserPaging(PageQuery pageQuery) {
         return this.userInfoService.queryUserPaging(pageQuery);
-
     }
 
     @ResponseBody
     @GetMapping(value = "/test")
-    public String test(){
-        return "ok";
+    public String test() {
+        return "admin-index";
     }
 }
