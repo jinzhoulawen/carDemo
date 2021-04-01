@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zw.web.mapper.CarInfoDetailsMapper">
+
+
+    <resultMap id="CarInfoAndDetailsMap" type="com.zw.web.model.dto.CarInfoDetailsDto">
+        <result column="id" property="id"/>
+        <result column="car_model_name" property="carModelName"/>
+        <result column="car_brand" property="carBrand"/>
+        <result column="car_brand_name" property="carBrandName"/>
+        <result column="car_years" property="carYears"/>
+        <result column="car_displacement" property="carDisplacement"/>
+        <result column="car_registration_time" property="carRegistrationTime"/>
+        <result column="car_mileage" property="carMileage"/>
+        <result column="car_transmission" property="carTransmission"/>
+        <result column="car_price" property="carPrice"/>
+        <result column="car_change_times" property="carChangeTimes"/>
+        <result column="car_collection_numbers" property="carCollectionNumbers"/>
+        <result column="car_history_numbers" property="carHistoryNumbers"/>
+        <result column="car_heat" property="carHeat"/>
+        <result column="car_create_date" property="carCreateDate"/>
+        <result column="car_vendor" property="carVendor"/>
+        <result column="car_level" property="carLevel"/>
+        <result column="car_engine" property="carEngine"/>
+        <result column="car_structure" property="carStructure"/>
+        <result column="car_size" property="carSize"/>
+        <result column="car_wheelbase" property="carWheelbase"/>
+        <result column="car_volume" property="carVolume"/>
+        <result column="car_drive_way" property="carDriveWay"/>
+        <result column="car_power_type" property="carPowerType"/>
+        <result column="car_front_suspension" property="carFrontSuspension"/>
+        <result column="car_after_suspension" property="carAfterSuspension"/>
+        <result column="car_front_brake" property="carFrontBrake"/>
+        <result column="car_after_brake" property="carAfterBrake"/>
+        <result column="car_drive_brake" property="carDriveBrake"/>
+        <result column="car_front_tires" property="carFrontTires"/>
+        <result column="car_after_tires" property="carAfterTires"/>
+        <result column="car_air" property="carAir"/>
+        <result column="car_cylinders" property="carCylinders"/>
+        <result column="car_horsepowermax" property="carHorsepowermax"/>
+        <result column="car_torquemax" property="carTorquemax"/>
+        <result column="car_torquemax" property="carTorquemax"/>
+        <result column="car_fueltype" property="carFueltype"/>
+        <result column="car_fuellabel" property="carFuellabel"/>
+        <result column="car_supplyway" property="carSupplyway"/>
+
+    </resultMap>
+
+
+    <select id="selectCarInfoAndDetails" resultMap="CarInfoAndDetailsMap">
+            select
+            A.*,
+            B.*
+            FROM car_Info A
+            INNER JOIN car_info_details B ON (A.id=B.cid)
+    </select>
+</mapper>

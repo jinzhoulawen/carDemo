@@ -13,7 +13,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -74,5 +78,40 @@ public class PubFileServiceImpl extends ServiceImpl<PubFileMapper, PubFile> impl
             }
         }
         return null;
+    }
+
+    public void getImage(String name, HttpServletResponse rsp){
+
+        PubFile pubFile = this.getOne(Wrappers.<PubFile>lambdaQuery().eq(PubFile::getName,name));
+
+        File imageFile = new File(pubFile.getStoragePath());
+        if (imageFile.exists()) {
+            FileInputStream fis = null;
+            OutputStream os = null;
+            try {
+                fis = new FileInputStream(imageFile);
+                os = rsp.getOutputStream();
+                int count = 0;
+                byte[] buffer = new byte[1024 * 8];
+                while ((count = fis.read(buffer)) != -1) {
+                    os.write(buffer, 0, count);
+                    os.flush();
+                }
+            } catch (Exception e) {
+                System.out.println("显示图片报错"+ e);
+            } finally {
+                try {
+                    fis.close();
+                    os.close();
+                } catch (IOException e) {
+                    System.out.println("显示图片关闭流失败"+e);
+
+                }
+            }
+
+        }else {
+            System.out.println("图片地址错误");
+
+        }
     }
 }

@@ -1,12 +1,16 @@
 package com.zw.web.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zw.web.mapper.CarConsultInfoMapper;
 import com.zw.web.mapper.CarMapper;
 import com.zw.web.mapper.UserMapper;
 import com.zw.web.model.domian.Car;
+import com.zw.web.model.domian.CarConsultInfo;
+import com.zw.web.model.dto.CarConsultInfoDto;
 import com.zw.web.model.dto.PageQuery;
 import com.zw.web.model.domian.PageResult;
 import com.zw.web.model.dto.CarCondition;
@@ -27,6 +31,9 @@ public class CarInfoServiceImpl extends ServiceImpl<CarMapper, Car> implements C
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private CarConsultInfoMapper carConsultInfoMapper;
 
     private HttpSession session;
 
@@ -78,5 +85,38 @@ public class CarInfoServiceImpl extends ServiceImpl<CarMapper, Car> implements C
         return null;
 
     }
+
+    @Override
+    public Boolean updateCar(Car car) {
+        int count = 0;
+        count = this.carMapper.update(car,Wrappers.<Car>lambdaUpdate().eq(Car::getId,car.getId()));
+        if (count>0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean insertCar(Car car) {
+        int count = 0;
+        count = this.carMapper.insert(car);
+        if (count>0)
+            return true;
+        else
+            return false;
+
+    }
+    //发布咨询
+    @Override
+    public Boolean insertConsult(CarConsultInfo carConsultInfo) {
+        int count = 0;
+        count = this.carConsultInfoMapper.insert(carConsultInfo);
+        if (count>0)
+            return true;
+        else
+            return false;
+    }
+
+
 
 }

@@ -15,4 +15,7 @@ public interface UserInfoService {
     String interUser(User user);
     PageResult<User> queryUserPaging(PageQuery pageQuery);
     //String addCarHistory( HttpServletRequest request, HttpServletResponse response);
+    Boolean ban(int uid);
+    Boolean unBan(int uid);
+    Boolean updateUser(User user);
 }

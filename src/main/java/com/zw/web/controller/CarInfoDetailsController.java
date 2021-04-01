@@ -1,4 +1,4 @@
-package com.zw.web.blog.controller;
+package com.zw.web.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author ${author}
- * @since 2021-03-18
+ * @since 2021-04-01
  */
 @Controller
-@RequestMapping("/blog/carInfoDetailsEngine")
-public class CarInfoDetailsEngineController {
+@RequestMapping("/blog/carInfoDetails")
+public class CarInfoDetailsController {
 
 }
 

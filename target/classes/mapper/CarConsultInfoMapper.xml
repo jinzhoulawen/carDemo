@@ -2,4 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zw.web.mapper.CarConsultInfoMapper">
 
+    <resultMap id="ConsultMap" type="com.zw.web.model.dto.CarConsultInfoDto">
+        <result column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="username" property="userName"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="create_date" property="createDate"/>
+
+    </resultMap>
+<select id="selectConsultListPage" resultMap="ConsultMap">
+    select
+    A.id,
+    A.uid,
+    A.title,
+    A.content,
+    A.create_date,
+    B.username
+
+    FROM
+    car_consult_info A INNER JOIN user B ON (A.uid=B.id)
+    ORDER BY create_date DESC
+</select>
+
 </mapper>

@@ -89,6 +89,49 @@ public class UserInfoServiceImpl extends ServiceImpl<UserMapper, User> implement
     }
 
 
+
+    //封号
+    @Override
+    public Boolean ban(int uid) {
+        User user= this.userMapper.selectById(uid);
+        int count = 0;
+        if (user.getIdentity()==0){
+            count = this.userMapper.update(user,Wrappers.<User>lambdaUpdate().eq(User::getId,uid).set(User::getIdentity,1));
+        }
+        if (count>0){
+            return true;
+        }
+        else
+            return false;
+
+    }
+    //解封
+    @Override
+    public Boolean unBan(int uid) {
+        User user= this.userMapper.selectById(uid);
+        int count = 0;
+        if (user.getIdentity()==1){
+            count = this.userMapper.update(user,Wrappers.<User>lambdaUpdate().eq(User::getId,uid).set(User::getIdentity,0));
+        }
+        if (count>0){
+            return true;
+        }
+        else
+            return false;
+
+    }
+    //修改用户信息
+    @Override
+    public Boolean updateUser(User user) {
+        int count = 0;
+        count = this.userMapper.update(user,Wrappers.<User>lambdaUpdate().eq(User::getId,user.getId()));
+        if (count>0){
+            return true;
+        }
+        return false;
+    }
+
+
     //    public String addCarHistory( HttpServletRequest request, HttpServletResponse response) {
 //        HttpSession session = request.getSession();
 //        //UpdateWrapper<Car> wrapper=new UpdateWrapper<>();
@@ -104,4 +147,5 @@ public class UserInfoServiceImpl extends ServiceImpl<UserMapper, User> implement
 //                );
         return null;
     }
+
 }

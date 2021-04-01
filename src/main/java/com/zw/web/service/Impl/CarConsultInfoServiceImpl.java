@@ -1,14 +1,18 @@
 package com.zw.web.service.Impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zw.web.mapper.UserMapper;
 import com.zw.web.model.domian.CarConsultInfo;
 import com.zw.web.mapper.CarConsultInfoMapper;
+import com.zw.web.model.domian.PageResult;
 import com.zw.web.model.domian.User;
 import com.zw.web.model.dto.CarConsultInfoDto;
+import com.zw.web.model.dto.PageQuery;
 import com.zw.web.service.CarConsultInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zw.web.utils.ApacheBeanUtils;
+import com.zw.web.utils.PageResultUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,5 +67,14 @@ public class CarConsultInfoServiceImpl extends ServiceImpl<CarConsultInfoMapper,
 
         }
         return resultList;
+    }
+    @Override
+    public PageResult<CarConsultInfoDto> queryConsultPaging(PageQuery pageQuery) {
+        Page<CarConsultInfoDto> page = new Page<>(pageQuery.getCurrentPage(),pageQuery.getPageSize());
+        page.setOptimizeCountSql(false);
+        page.setRecords(this.carConsultInfoMapper.selectConsultListPage(page));
+        return PageResultUtil.createPageResult(page, list->{
+            return list;
+        },pageQuery.getParamMap());
     }
 }

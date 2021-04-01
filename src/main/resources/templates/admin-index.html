@@ -37,7 +37,7 @@
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
             <!--      <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">5</span></a></li>-->
             <li class="am-dropdown" data-am-dropdown>
-                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;" id="jsId">
                     <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
@@ -257,8 +257,10 @@
             currentPage: 1,
             pageSize: 10
         }
+        var flag = false;
         $.ajax({
-            url: "http://localhost:8080/user/queryUserPage",
+            url: "http://localhost:8062/user/queryUserPage",
+            async: false,
             type: "POST",
             dataType: "json",
             //contentType:"application/json;charset=utf-8",
@@ -341,16 +343,9 @@
                     i++;
                     route_lis += li;
                 })
+                flag = true;
+                $("#route").html(route_lis);
 
-                $("#route").html(route_lis).on("click",function (){});
-                for (var i = 1; i <= data.records.length; i++) {
-                  //获取{rid:1,rname:"xxx"}
-                  var records = data.records;
-                  var route = records.list[i];
-
-
-
-                }
 
 
                 //定位到页面顶部
@@ -360,7 +355,24 @@
                 alert("22");
                 console.log("faild")
             }
-        })
+
+        });
+        var loadFile;
+        loadFile = setInterval(function() {//定时检测
+            if(flag) {//如果数据已经处理完毕
+                loadjscssfile('css/admin.css', "css"); //加载你的css文件
+                loadjscssfile('css/amazeui.min.css', "css"); //加载你的css文件
+                loadjscssfile('css/amazeui.flat.min.css', "css"); //加载你的css文件
+                loadjscssfile('http://libs.baidu.com/jquery/1.11.1/jquery.min.js', "js"); //加载你的js文件
+                loadjscssfile('http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js', "js"); //加载你的js文件
+                loadjscssfile('js/amazeui.ie8polyfill.min.js">', "js"); //加载你的js文件
+                loadjscssfile('js/app.js', "js"); //加载你的js文件
+                loadjscssfile('js/jquery.min.js', "js"); //加载你的js文件
+                loadjscssfile('js/amazeui.min.js', "js"); //加载你的js文件
+
+                clearTimeout(t);//取消定时检测节省开销
+            }
+        },50)
 
     }
 

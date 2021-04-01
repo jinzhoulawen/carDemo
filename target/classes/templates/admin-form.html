@@ -2,18 +2,18 @@
 <html class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <title>Amaze UI Admin form Examples</title>
-  <meta name="description" content="这是一个form页面">
-  <meta name="keywords" content="form">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="../static/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="../static/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="../static/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="../static/css/admin.css">
+  <meta content="这是一个form页面" name="description">
+  <meta content="form" name="keywords">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="webkit" name="renderer">
+  <meta content="no-siteapp" http-equiv="Cache-Control" />
+  <link href="../static/i/favicon.png" rel="icon" type="image/png">
+  <link href="../static/i/app-icon72x72@2x.png" rel="apple-touch-icon-precomposed">
+  <meta content="Amaze UI" name="apple-mobile-web-app-title" />
+  <link href="../static/css/amazeui.min.css" rel="stylesheet"/>
+  <link href="../static/css/admin.css" rel="stylesheet">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -56,7 +56,7 @@
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a class="am-cf" href="admin-user.html"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
             <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
             <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
             <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
@@ -122,13 +122,13 @@
             <div class="am-u-sm-8 am-u-md-10">
               <div class="am-btn-group" data-am-button>
                 <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option1"> 正常
+                  <input id="option1" name="options" type="radio"> 正常
                 </label>
                 <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option2"> 待审核
+                  <input id="option2" name="options" type="radio"> 待审核
                 </label>
                 <label class="am-btn am-btn-default am-btn-xs">
-                  <input type="radio" name="options" id="option3"> 不显示
+                  <input id="option3" name="options" type="radio"> 不显示
                 </label>
               </div>
             </div>
@@ -165,7 +165,7 @@
               <form action="" class="am-form am-form-inline">
                 <div class="am-form-group am-form-icon">
                   <i class="am-icon-calendar"></i>
-                  <input type="date" class="am-form-field am-input-sm" placeholder="日期">
+                  <input class="am-form-field am-input-sm" placeholder="日期" type="date">
                 </div>
               </form>
             </div>
@@ -179,7 +179,7 @@
               <form action="" class="am-form am-form-inline">
                 <div class="am-form-group am-form-icon">
                   <i class="am-icon-calendar"></i>
-                  <input type="datetime-local" class="am-form-field am-input-sm" placeholder="时间">
+                  <input class="am-form-field am-input-sm" placeholder="时间" type="datetime-local">
                 </div>
               </form>
             </div>
@@ -194,7 +194,7 @@
                 文章标题
               </div>
               <div class="am-u-sm-8 am-u-md-4">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
               <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
             </div>
@@ -204,7 +204,7 @@
                 文章作者
               </div>
               <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
             </div>
 
@@ -213,7 +213,7 @@
                 信息来源
               </div>
               <div class="am-u-sm-8 am-u-md-4">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
               <div class="am-hide-sm-only am-u-md-6">选填</div>
             </div>
@@ -223,7 +223,7 @@
                 内容摘要
               </div>
               <div class="am-u-sm-8 am-u-md-4">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
               <div class="am-u-sm-12 am-u-md-6">不填写则自动截取内容前255字符</div>
             </div>
@@ -233,7 +233,7 @@
                 内容描述
               </div>
               <div class="am-u-sm-12 am-u-md-10">
-                <textarea rows="10" placeholder="请使用富文本编辑插件"></textarea>
+                <textarea placeholder="请使用富文本编辑插件" rows="10"></textarea>
               </div>
             </div>
 
@@ -247,7 +247,7 @@
                 SEO 标题
               </div>
               <div class="am-u-sm-8 am-u-md-4 am-u-end">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
             </div>
 
@@ -256,7 +256,7 @@
                 SEO 关键字
               </div>
               <div class="am-u-sm-8 am-u-md-4 am-u-end">
-                <input type="text" class="am-input-sm">
+                <input class="am-input-sm" type="text">
               </div>
             </div>
 
@@ -275,8 +275,8 @@
     </div>
 
     <div class="am-margin">
-      <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-      <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+      <button class="am-btn am-btn-primary am-btn-xs" type="button">提交保存</button>
+      <button class="am-btn am-btn-primary am-btn-xs" type="button">放弃保存</button>
     </div>
   </div>
 
@@ -289,7 +289,7 @@
 
 </div>
 
-<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}" href="#"></a>
 
 <footer>
   <hr>

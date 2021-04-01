@@ -2,18 +2,18 @@
 <html class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <title>Amaze UI Admin user Examples</title>
-  <meta name="description" content="这是一个 user 页面">
-  <meta name="keywords" content="user">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="../static/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="../static/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="../static/css/amazeui.min.css"/>
-  <link rel="stylesheet" href="../static/css/admin.css">
+  <meta content="这是一个 user 页面" name="description">
+  <meta content="user" name="keywords">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="webkit" name="renderer">
+  <meta content="no-siteapp" http-equiv="Cache-Control" />
+  <link href="../static/i/favicon.png" rel="icon" type="image/png">
+  <link href="../static/i/app-icon72x72@2x.png" rel="apple-touch-icon-precomposed">
+  <meta content="Amaze UI" name="apple-mobile-web-app-title" />
+  <link href="../static/css/amazeui.min.css" rel="stylesheet"/>
+  <link href="../static/css/admin.css" rel="stylesheet">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -56,7 +56,7 @@
         <li class="admin-parent">
           <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 页面模块 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
           <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
-            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
+            <li><a class="am-cf" href="admin-user.html"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
             <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
             <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
             <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
@@ -100,15 +100,15 @@
             <div class="am-panel-bd">
               <div class="am-g">
                 <div class="am-u-md-4">
-                  <img class="am-img-circle am-img-thumbnail" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/200/h/200/q/80" alt=""/>
+                  <img alt="" class="am-img-circle am-img-thumbnail" src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/200/h/200/q/80"/>
                 </div>
                 <div class="am-u-md-8">
                   <p>你可以使用<a href="#">gravatar.com</a>提供的头像或者使用本地上传头像。 </p>
                   <form class="am-form">
                     <div class="am-form-group">
-                      <input type="file" id="user-pic">
+                      <input id="user-pic" type="file">
                       <p class="am-form-help">请选择要上传的文件...</p>
-                      <button type="button" class="am-btn am-btn-primary am-btn-xs">保存</button>
+                      <button class="am-btn am-btn-primary am-btn-xs" type="button">保存</button>
                     </div>
                   </form>
                 </div>
@@ -140,53 +140,53 @@
         <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
           <form class="am-form am-form-horizontal">
             <div class="am-form-group">
-              <label for="user-name" class="am-u-sm-3 am-form-label">姓名 / Name</label>
+              <label class="am-u-sm-3 am-form-label" for="user-name">姓名 / Name</label>
               <div class="am-u-sm-9">
-                <input type="text" id="user-name" placeholder="姓名 / Name">
+                <input id="user-name" placeholder="姓名 / Name" type="text">
                 <small>输入你的名字，让我们记住你。</small>
               </div>
             </div>
 
             <div class="am-form-group">
-              <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
+              <label class="am-u-sm-3 am-form-label" for="user-email">电子邮件 / Email</label>
               <div class="am-u-sm-9">
-                <input type="email" id="user-email" placeholder="输入你的电子邮件 / Email">
+                <input id="user-email" placeholder="输入你的电子邮件 / Email" type="email">
                 <small>邮箱你懂得...</small>
               </div>
             </div>
 
             <div class="am-form-group">
-              <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
+              <label class="am-u-sm-3 am-form-label" for="user-phone">电话 / Telephone</label>
               <div class="am-u-sm-9">
-                <input type="tel" id="user-phone" placeholder="输入你的电话号码 / Telephone">
+                <input id="user-phone" placeholder="输入你的电话号码 / Telephone" type="tel">
               </div>
             </div>
 
             <div class="am-form-group">
-              <label for="user-QQ" class="am-u-sm-3 am-form-label">QQ</label>
+              <label class="am-u-sm-3 am-form-label" for="user-QQ">QQ</label>
               <div class="am-u-sm-9">
-                <input type="number" pattern="[0-9]*" id="user-QQ" placeholder="输入你的QQ号码">
+                <input id="user-QQ" pattern="[0-9]*" placeholder="输入你的QQ号码" type="number">
               </div>
             </div>
 
             <div class="am-form-group">
-              <label for="user-weibo" class="am-u-sm-3 am-form-label">微博 / Twitter</label>
+              <label class="am-u-sm-3 am-form-label" for="user-weibo">微博 / Twitter</label>
               <div class="am-u-sm-9">
-                <input type="text" id="user-weibo" placeholder="输入你的微博 / Twitter">
+                <input id="user-weibo" placeholder="输入你的微博 / Twitter" type="text">
               </div>
             </div>
 
             <div class="am-form-group">
-              <label for="user-intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
+              <label class="am-u-sm-3 am-form-label" for="user-intro">简介 / Intro</label>
               <div class="am-u-sm-9">
-                <textarea class="" rows="5" id="user-intro" placeholder="输入个人简介"></textarea>
+                <textarea class="" id="user-intro" placeholder="输入个人简介" rows="5"></textarea>
                 <small>250字以内写出你的一生...</small>
               </div>
             </div>
 
             <div class="am-form-group">
               <div class="am-u-sm-9 am-u-sm-push-3">
-                <button type="button" class="am-btn am-btn-primary">保存修改</button>
+                <button class="am-btn am-btn-primary" type="button">保存修改</button>
               </div>
             </div>
           </form>
@@ -204,7 +204,7 @@
 
 </div>
 
-<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}" href="#"></a>
 
 <footer>
   <hr>
